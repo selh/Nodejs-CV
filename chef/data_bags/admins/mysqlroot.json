@@ -1,0 +1,10 @@
+// test commands for the databags: 
+// cd into chef repo
+// knife data bag create admins mysqlroot --secret-file ./encrypted_data_bag_key
+// knife data bag show admins mysqlroot 
+{
+    "id"   : "mysql",
+    "pass" : "pass123",
+    "user" : "root",
+    "deploy_key" : "ssh_private_key",
+}

@@ -1,0 +1,18 @@
+.c-path-title {
+    font-size: 20px;
+    margin-left: map-get($spacing__map, md);
+}
+
+.c-path-title .c-path-title__slash {
+    color: $color-grey-15;
+    margin: 0 map-get($spacing__map, md);
+}
+
+.c-path-title .c-path-title__locations {
+    color: $color-grey-15;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,13 @@
+.t-tab-tabbar {
+    width: 100%;
+    height: $tab-bar-height;
+    padding: 0 25%;
+    background-color: $color-primary;
+}
+
+
+@media screen and (max-width: 760px)  {
+    .t-tab-tabbar {
+        padding: 0 15%;
+    }
+}

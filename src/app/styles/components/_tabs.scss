@@ -1,0 +1,56 @@
+$tab-bar-height: 50px;
+$tab-slider-height: 3px;
+
+
+.c-tab-bar {
+    --tab-number: 1;
+
+    position: relative;
+    width: 100%;
+    height: $tab-bar-height;
+    background-color: $color-primary;
+
+    a {
+        flex-grow: 1;
+        width: calc(100% / var(--tab-number));
+        text-decoration: none;
+        text-align: center;
+    }
+}
+
+.c-tab-item {
+    width: 100%;
+    height: 100%;
+    padding: map-get($spacing__map, sm);
+}
+
+.c-tab-item label {
+    cursor: pointer;
+    color: $color-grey-30;
+    font-weight: 300;
+    font-size: 20px;
+
+    &:hover {
+        color: $color-grey-15;
+        font-weight: 400;
+    }
+}
+
+.c-tab-item--active {
+    label {
+        color: $color-grey-15;
+        font-weight: 500;
+    }
+}
+
+.c-tab-slider {
+    position: absolute;
+    width: calc(100% / var(--tab-number));
+    left: 0;
+    bottom: 0;
+    background-color: $color-secondary;
+    height: $tab-slider-height;
+    transition-duration: 0.5s;
+    transition-property: left;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}

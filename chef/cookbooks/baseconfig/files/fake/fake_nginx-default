@@ -1,0 +1,52 @@
+# https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-with-ssl-as-a-reverse-proxy-for-jenkins
+# https://serverfault.com/questions/353396/nginx-redirecting-a-location-block-to-another
+
+server_tokens off;
+
+upstream _app {
+  server 127.0.0.1:9999;
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+
+  proxy_set_header        Host $host;
+  proxy_set_header        X-Real-IP $remote_addr;
+  proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header        X-Forwarded-Proto $scheme;
+  proxy_read_timeout      90;
+
+  access_log              /var/log/nginx/main-project.access.log;
+
+  gzip                    on;
+  gzip_types              text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
+  gzip_min_length         1000;
+
+  location / {
+    root                        /home/ubuntu/project/src/public/;
+    try_files                   $uri $uri/ @proxy;
+  }
+
+  location /index.html {
+    proxy_pass                  http://_app;
+  }
+
+  location ~ ^/favicon.(png|ico)$ {
+    root                        /home/ubuntu/project/src/public/assets/;
+  }
+
+  location @proxy {
+    proxy_pass                  http://_app;
+  }
+
+  # https://www.nginx.com/blog/nginx-nodejs-websockets-socketio/
+  location /socket.io/ {
+    proxy_set_header Upgrade    $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_http_version          1.1;
+
+    proxy_pass                  http://_app/socket.io/;
+  }
+
+}

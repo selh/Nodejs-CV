@@ -1,0 +1,5 @@
+{
+    "id"   : "mysql",
+    "pass" : "sup3ersecure",
+    "user" : "project_user"
+}

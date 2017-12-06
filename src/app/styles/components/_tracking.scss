@@ -1,0 +1,12 @@
+.c-new-tracking-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+    .c-new-tracking-item {
+        flex-direction: column
+    }
+}

@@ -1,0 +1,16 @@
+.c-blocks-list {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
+    padding: map-get($spacing__map, md);
+    overflow: scroll;
+}
+
+.c-blocks-editor {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    padding: map-get($spacing__map, md);
+}

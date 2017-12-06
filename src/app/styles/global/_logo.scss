@@ -1,0 +1,26 @@
+.u-logo {
+    width: 150px;
+    height: 150px;
+
+    &:hover {
+        cursor: pointer;
+
+        .u-logo__eyes,
+        .u-logo__bell {
+            fill: #FFD700;
+        }
+    }
+}
+
+// TODO: use this for svg logo
+.u-logo__eyes,
+.u-logo__bell {
+    transition: 200ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 200ms;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.c-avatar-logo {
+    border-radius: 50%;
+}

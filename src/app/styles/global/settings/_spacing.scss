@@ -1,0 +1,72 @@
+$margin-prefix: u-margin;
+$padding-prefix: u-padding;
+
+$spacing-directions: (top, right, bottom, left);
+$spacing-sizes: (xs, sm, md, lg, xl);
+
+$base-px-unit: 5px;
+$min-tap-target-size: 44px;
+$spacing__map: (
+    xs: $base-px-unit,
+    sm: $base-px-unit * 2,
+    md: $base-px-unit * 3,
+    lg: $base-px-unit * 4,
+    xl: $base-px-unit * 5
+);
+
+@each $size in $spacing-sizes {
+    // Margin
+    // ---
+    .#{$margin-prefix}-#{$size} {
+        margin: map-get($spacing__map, $size);
+    }
+
+    .#{$margin-prefix}-h-#{$size} {
+        margin-left: map-get($spacing__map, $size);
+        margin-right: map-get($spacing__map, $size);
+    }
+
+    .#{$margin-prefix}-v-#{$size} {
+        margin-top: map-get($spacing__map, $size);
+        margin-bottom: map-get($spacing__map, $size);
+    }
+
+    // Padding
+    // ---
+    .#{$padding-prefix}-#{$size} {
+        padding: map-get($spacing__map, $size);
+    }
+
+    .#{$padding-prefix}-h-#{$size} {
+        padding-left: map-get($spacing__map, $size);
+        padding-right: map-get($spacing__map, $size);
+    }
+
+    .#{$padding-prefix}-v-#{$size} {
+        padding-top: map-get($spacing__map, $size);
+        padding-bottom: map-get($spacing__map, $size);
+    }
+}
+
+.u-margin-none {
+    margin: 0 !important;
+}
+
+// Dimension
+// ---
+.u-full-width {
+    width: 100% !important;
+}
+
+.u-full-height {
+    height: 100%;
+}
+
+.u-half-width {
+    width: 50% !important;
+}
+
+.u-full {
+    width: 100%;
+    height: 100%;
+}

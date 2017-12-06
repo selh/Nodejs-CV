@@ -1,0 +1,74 @@
+// Example: http://tobiasahlin.com/spinkit/
+
+.c-cube-grid {
+    width: 100px;
+    height: 100px;
+}
+
+.c-cube-grid .c-cube {
+    width: 33%;
+    height: 33%;
+    background-color: $color-primary-dark;
+    float: left;
+    -webkit-animation: CubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: CubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.c-cube-grid .c-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.c-cube-grid .c-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.c-cube-grid .c-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.c-cube-grid .c-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.c-cube-grid .c-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.c-cube-grid .c-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.c-cube-grid .c-cube7 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.c-cube-grid .c-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.c-cube-grid .c-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes CubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes CubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}

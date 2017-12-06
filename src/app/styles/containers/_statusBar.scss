@@ -1,0 +1,42 @@
+.c-status-bar {
+    --status-bar-height: 60px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: var(--status-bar-height);
+    max-height: var(--status-bar-height);
+    background-color: $color-primary;
+    padding: map-get($spacing__map, sm) 0;
+}
+
+.c-status-bar .c-status-bar__logo {
+    --logoWidth: 65px;
+
+    position: absolute;
+    left: calc(50% - (var(--logoWidth)/2));;
+    width: var(--logoWidth);
+    height: auto;
+    z-index: $modal-layer;
+}
+
+.c-status-bar .c-status-bar__user {
+    display: flex;
+    align-items: center;
+
+    &:hover,
+    label:hover {
+        cursor: pointer;
+    }
+
+    * {
+        margin: 0 map-get($spacing__map, xs);
+    }
+}
+
+.c-status-bar .c-status-bar__notification {
+    display: flex;
+    align-items: center;
+}

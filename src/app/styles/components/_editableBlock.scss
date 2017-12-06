@@ -1,0 +1,27 @@
+.c-editable-block-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.c-editable-block-container .c-editable-block__buttons {
+    display: flex;
+    justify-content: space-around;
+    min-width: 130px;
+}
+
+
+@media screen and (max-width: 760px)  {
+    .c-editable-block-container .c-editable-block__button i {
+        font-size: 14px;
+    }
+
+    .c-editable-block-container .c-editable-block__buttons {
+        min-width: 100px;
+
+        i {
+            font-size: 14px;
+            margin: 0 5px;
+        }
+    }
+}

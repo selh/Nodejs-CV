@@ -1,0 +1,15 @@
+.t-view-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    width: 100%;
+    padding: 0 map-get($spacing__map, xl);
+}
+
+
+@media screen and (max-width: 760px)  {
+    .t-view-container {
+        padding: 0 map-get($spacing__map, xl);
+    }
+}

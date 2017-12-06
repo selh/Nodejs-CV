@@ -1,0 +1,9 @@
+DEPENDENCIES
+  database
+    path: .
+    metadata: true
+
+GRAPH
+  database (0.0.0)
+    mysql (= 8.5.1)
+  mysql (8.5.1)

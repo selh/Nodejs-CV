@@ -1,0 +1,4 @@
+COOKIE_KEY=cookie_key
+LINKEDIN_KEY=linkedin_key
+LINKEDIN_SECRET=linkedin_secret
+JWT_SECRET=jwt_secret

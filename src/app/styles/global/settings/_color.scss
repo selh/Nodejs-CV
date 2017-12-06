@@ -1,0 +1,44 @@
+// Colours
+
+// Base
+// ---
+$color-accessible-green: #248700;
+$color-success: $color-accessible-green;
+$color-fail: #F2453E;
+
+.u-success-text {
+    color: $color-success;
+}
+
+.u-fail-text {
+    color: $color-fail;
+}
+
+$color-lightest-blue: #f9fBff;
+$color-light-blue: #62b4f4;
+$color-dark-blue: #2286c3;
+$color-light-yellow: #ffd740;
+$color-dark-yellow: #c8a600;
+
+// Neutral
+// ---
+$color-grey-95: hsl(0, 0%, 95%);
+$color-grey-90: hsl(0, 0%, 90%);
+$color-grey-85: hsl(0, 0%, 85%);
+$color-grey-70: hsl(0, 0%, 70%);
+$color-grey-50: hsl(0, 0%, 50%);
+$color-grey-30: hsl(0, 0%, 30%);
+$color-grey-15: hsl(0, 0%, 15%);
+
+
+// Token
+// ---
+$color-primary: $color-light-blue;
+$color-primary-dark: $color-dark-blue;
+$color-secondary: $color-light-yellow;
+$color-secondary-dark: $color-dark-yellow;
+
+// Typography colors
+// ---
+$color-text: $color-grey-15;
+$color-link: $color-grey-30;

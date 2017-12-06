@@ -1,0 +1,63 @@
+.c-file-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.c-file-container .c-file-content {
+    width: 60%;
+    height: 100%;
+    padding: map-get($spacing__map, sm);
+    overflow: scroll;
+}
+
+.c-file-content .c-file-content__file.c--active {
+    box-shadow:
+        0 1px 3px rgba(0,0,0,0.12),
+        0 1px 2px rgba(0,0,0,0.24);
+}
+
+.c-file-content .c-file-content__button {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        width: 20%;
+    }
+}
+
+.c-file-container .c-file-blocks {
+    width: 40%;
+    height: 100%;
+    overflow: scroll;
+    border-left: 1px solid $color-grey-85;
+}
+
+
+.c-file-container .c-file-comments {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    border-left: 1px solid $color-grey-85;
+}
+
+
+@media screen and (min-width: 1140px) {
+    .c-file-container .c-file-content {
+        width: 70%;
+        padding: map-get($spacing__map, xm);
+    }
+
+    .c-file-container .c-file-blocks {
+        width: 30%;
+        padding: map-get($spacing__map, xm);
+    }
+
+
+    .c-file-container .c-file-comments {
+        width: 30%;
+        padding: map-get($spacing__map, xm);
+    }
+}
