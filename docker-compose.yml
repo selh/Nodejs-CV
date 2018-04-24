@@ -1,0 +1,18 @@
+version: '3'
+services:
+  cvdump:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - ./src:/proj/src
+    ports:
+      - 9999:9999
+
+  mysql:
+    image: 470-project/mysql:latest
+    ports: 
+      - 3306:3306
+
+volumes:
+  cvdump:

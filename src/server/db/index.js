@@ -4,7 +4,7 @@ const sqlstring  = require('sqlstring')
 
 const options = {
     connectionLimit : 50,
-    host            : 'localhost',
+    host            : 'mysql',
     user            : parsedJSON.user,
     password        : parsedJSON.password,
     database        : parsedJSON.database,

@@ -5,7 +5,7 @@ const webpackProdConfig = require('./webpack.config.prod')
 
 let webpackConfig = {
     entry: {
-        main: __dirname + '/../src/app/js/app.jsx',
+        main: ['babel-polyfill', __dirname + '/../src/app/js/app.jsx'],
         'pdf.worker': 'pdfjs-dist/build/pdf.worker.entry',
     },
     output: {
@@ -20,9 +20,13 @@ let webpackConfig = {
             {
                 test: /\.(jsx?)$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory: `${__dirname}/tmp`
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["env", 'react', 'stage-0'],
+                        plugins: ["transform-object-rest-spread"],
+                        cacheDirectory: `${__dirname}/tmp`
+                    }
                 }
             },
             {
