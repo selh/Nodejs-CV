@@ -1,0 +1,593 @@
+==========================================
+Git command used to generate file:
+git log --author=<myemail> --stat be7d316..c16574d > seleena-orig-git-commits
+==========================================
+
+commit c16574da149603711421daa80967ca97cc78504f
+Merge: 0bd25b5 034f765
+Author: seleenah <myemail>
+Date:   Mon Dec 4 11:43:49 2017 -0800
+
+    Merge branch 'seed' into 'master'
+    
+    db fix
+    
+    See merge request !85
+
+commit 034f765c34d798cf5da31a380f4e077f142302e0
+Author: seleenah <myemail>
+Date:   Mon Dec 4 19:25:39 2017 -0800
+
+    db fix
+
+ chef/cookbooks/database/files/sqldump.sql | 33 ++++++++++++++++++++++++++++++-
+ src/server/fs/index.js                    |  2 +-
+ 2 files changed, 33 insertions(+), 2 deletions(-)
+
+commit 0bd25b5f4e73a9a5c06dee85699c945fda432f6a
+Merge: 8ef060d 51483ef
+Author: seleenah <myemail>
+Date:   Mon Dec 4 11:18:13 2017 -0800
+
+    Merge branch 'seed' into 'master'
+    
+    re-seed database
+    
+    See merge request !82
+
+commit 51483ef333267277655d605bbd0fab6a837fca5d
+Author: Seleena Hua <myemail>
+Date:   Mon Dec 4 10:09:23 2017 -0800
+
+    re-seed database
+
+ chef/cookbooks/baseconfig/files/HmYibh.pdf | Bin 0 -> 7350 bytes
+ chef/cookbooks/baseconfig/files/TZSUY4.pdf | Bin 8696 -> 0 bytes
+ chef/cookbooks/baseconfig/recipes/fs.rb    |  16 +++++++----
+ chef/cookbooks/database/files/sqldump.sql  |  42 +++--------------------------
+ src/server/fs/index.js                     |   2 +-
+ 5 files changed, 16 insertions(+), 44 deletions(-)
+
+commit 4674c5e6ee53731e31eb365512f4ab777440db59
+Merge: d6ee57d de64626
+Author: seleenah <myemail>
+Date:   Sun Dec 3 20:40:57 2017 -0800
+
+    Merge branch 'docs' into 'master'
+    
+    fix doc permissions
+    
+    See merge request !79
+
+commit de64626c03d8fcb93fe0bf5dbef122033990b841
+Author: seleenah <myemail>
+Date:   Mon Dec 4 03:26:25 2017 -0800
+
+    fix doc permissions
+
+ src/server/fs/index.js         |  2 +-
+ src/server/models/document.js  | 27 +++++++++++++++++++++++----
+ src/server/routes/files_api.js | 14 +++++++-------
+ 3 files changed, 31 insertions(+), 12 deletions(-)
+
+commit d6ee57db7dfbc45471bb1199d5cfc19467fcc921
+Merge: 077229d cde2075
+Author: seleenah <myemail>
+Date:   Sun Dec 3 18:34:44 2017 -0800
+
+    Merge branch 'download' into 'master'
+    
+    Download
+    
+    See merge request !78
+
+commit cde20758320fb42d317f0cbc6d01bcf64311a08b
+Author: Seleena Hua <myemail>
+Date:   Sun Dec 3 18:31:51 2017 -0800
+
+    download
+
+ src/app/js/actions/index.js    | 10 +++++-----
+ src/app/js/components/File.jsx |  1 +
+ src/server/routes/files_api.js |  7 ++-----
+ 3 files changed, 8 insertions(+), 10 deletions(-)
+
+commit 76fa043c75de54cb2add86a8542dd56709695e87
+Author: Seleena Hua <myemail>
+Date:   Sat Dec 2 23:22:48 2017 -0800
+
+    download
+
+ src/app/js/actions/index.js                | 19 +++++++++++++++++++
+ src/app/js/actions/types.js                |  4 ++++
+ src/app/js/components/File.jsx             | 13 ++++++++++++-
+ src/app/js/reducers/selectedFileReducer.js |  1 -
+ src/server/fs/index.js                     | 24 +++++++++++++++++++++++-
+ src/server/routes/files_api.js             | 29 +++++++++++++++++++++++++++++
+ 6 files changed, 87 insertions(+), 3 deletions(-)
+
+commit 923a405a8b5d51a9843e37e532bc76ede8362179
+Merge: 33dd27c d0dcf5b
+Author: seleenah <myemail>
+Date:   Sun Dec 3 09:25:46 2017 -0800
+
+    Merge branch 'dependency' into 'master'
+    
+    add libfontconfig dependency
+    
+    See merge request !74
+
+commit d0dcf5b7fe7db3c581879e67bdbddb513a6ba66f
+Author: seleenah <myemail>
+Date:   Sun Dec 3 00:29:50 2017 -0800
+
+    add libfontconfig dependency
+
+ chef/cookbooks/baseconfig/recipes/default.rb | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 33dd27ccc6fe107f5ae43976651de7b006870875
+Merge: e3108b9 bcbf692
+Author: seleenah <myemail>
+Date:   Sat Dec 2 20:25:45 2017 -0800
+
+    Merge branch 'share-fix' into 'master'
+    
+    fix
+    
+    See merge request !72
+
+commit bcbf692fbec4f1fc8f7edb6d8f91f73a9c6853fd
+Author: Seleena Hua <myemail>
+Date:   Sat Dec 2 20:15:50 2017 -0800
+
+    fix
+
+ src/app/js/containers/FilesView.jsx  |  5 +++--
+ src/app/js/containers/SharedView.jsx | 12 ++++++------
+ src/server/db/secrets.json           |  4 ++--
+ src/server/models/document.js        | 14 +++++++-------
+ src/server/models/documentblock.js   | 19 +++++++++++--------
+ src/server/routes/files_api.js       | 16 ++++++++--------
+ 6 files changed, 37 insertions(+), 33 deletions(-)
+
+commit e3108b9548da72b8ff2ebbb34d382b6291a0a78b
+Merge: 13cc0dd 7988f4c
+Author: seleenah <myemail>
+Date:   Sat Dec 2 19:13:02 2017 -0800
+
+    Merge branch 'hugoc/sharing-api' into 'master'
+    
+    Hugoc/sharing api
+    
+    See merge request !66
+
+commit 13cc0ddd353d8294a80363b34436807e393abd63
+Merge: 7d4e741 c10a40e
+Author: seleenah <myemail>
+Date:   Sat Dec 2 18:55:51 2017 -0800
+
+    Merge branch 'mergeblocks' into 'master'
+    
+    Integrate save button
+    
+    See merge request !70
+
+commit c10a40e9d2c8c74d25a4050eefc8f8c733399b65
+Author: Seleena Hua <myemail>
+Date:   Sat Dec 2 18:53:08 2017 -0800
+
+    lint
+
+ src/app/js/actions/index.js             |  4 +--
+ src/app/js/components/File.jsx          |  4 +--
+ src/server/fs/index.js                  |  4 ---
+ src/server/models/block.js              | 36 +--------------------
+ src/server/models/document.js           |  1 +
+ src/server/models/documentblock.js      | 24 +++++++++++++-
+ src/server/routes/blocks_api.js         | 56 +++++++++++++++++++++++++++++++++
+ src/server/routes/documentblocks_api.js | 38 +++-------------------
+ src/server/routes/files_api.js          |  6 ++--
+ 9 files changed, 91 insertions(+), 82 deletions(-)
+
+commit 868df4ef868ff6d51785804a3bff30ea390a33d1
+Author: Seleena Hua <myemail>
+Date:   Fri Dec 1 00:11:54 2017 -0800
+
+    Integrate save button
+
+ .gitignore                                 |  4 ++
+ src/app/js/actions/index.js                | 63 +++++++--------------
+ src/app/js/components/EditableBlock.jsx    |  3 +-
+ src/app/js/components/File.jsx             | 18 ++++--
+ src/app/js/components/ShareFile.jsx        |  1 -
+ src/app/js/reducers/selectedFileReducer.js |  6 +-
+ src/server/fs/index.js                     | 60 +++++++++++++-------
+ src/server/models/block.js                 | 36 +++++++++++-
+ src/server/models/document.js              | 82 ++++++++++++++++-----------
+ src/server/models/documentblock.js         | 71 +++++++++++++++++------
+ src/server/routes/api.js                   |  2 +-
+ src/server/routes/blocks_api.js            | 56 ------------------
+ src/server/routes/documentblocks_api.js    | 56 ++++++++++++++++++
+ src/server/routes/files_api.js             | 91 ++++++++++++++++++++++++------
+ 14 files changed, 352 insertions(+), 197 deletions(-)
+
+commit 7d58cbbd9a23791dc85b41ce2738a0b58b67a11c
+Merge: 640e6d0 89ed807
+Author: Seleena Hua <myemail>
+Date:   Sat Dec 2 12:51:08 2017 -0800
+
+    Modify sharing to display files shared by user
+
+commit 640e6d02ce00c80bf69b2119274406e4179c6c5d
+Author: Seleena Hua <myemail>
+Date:   Sat Dec 2 12:39:48 2017 -0800
+
+    shares call
+
+ src/server/db/secrets.json      |  4 ++--
+ src/server/models/document.js   |  6 +++---
+ src/server/routes/shared_api.js | 10 +++++-----
+ 3 files changed, 10 insertions(+), 10 deletions(-)
+
+commit 3967ca7860c8bc3e5a26bd3e128add41c56c68cf
+Merge: e172cea 5be42ce
+Author: seleenah <myemail>
+Date:   Thu Nov 30 16:53:47 2017 -0800
+
+    Merge branch 'fs' into 'master'
+    
+    hook up files, shared
+    
+    See merge request !62
+
+commit 5be42ce849fac1d6370986f647d1181304184d88
+Author: Seleena Hua <myemail>
+Date:   Wed Nov 29 21:42:17 2017 -0800
+
+    hook up files and load all blocks, shared files now sorts according to if user shared to or shared with
+
+ chef/cookbooks/database/files/sqldump.sql |  9 +++---
+ src/app/js/actions/index.js               | 10 ++++--
+ src/app/js/components/File.jsx            |  4 +--
+ src/app/js/containers/FilesView.jsx       |  4 +--
+ src/app/js/containers/SharedView.jsx      | 22 ++++++-------
+ src/server/fs/index.js                    |  5 +--
+ src/server/models/block.js                | 36 ++++++++++-----------
+ src/server/models/document.js             | 52 +++++++++++++++++--------------
+ src/server/models/documentblock.js        | 41 +++++++++++++++---------
+ src/server/routes/api.js                  |  1 +
+ src/server/routes/blocks_api.js           | 42 +++++++++++++++++++++++++
+ src/server/routes/files_api.js            | 17 +---------
+ src/server/routes/shared_api.js           | 30 ++++++++----------
+ 13 files changed, 158 insertions(+), 115 deletions(-)
+
+commit e172ceaf40817d5da9e15f960144e63a40eec152
+Merge: 7a10282 cdd80f2
+Author: seleenah <myemail>
+Date:   Thu Nov 30 10:06:40 2017 -0800
+
+    Merge branch 'fs-seed' into 'master'
+    
+    seed filesystem with intial file for user1
+    
+    See merge request !60
+
+commit cdd80f2c089e67dc871baa59c2ef2c37dd61d9e1
+Author: seleenah <myemail>
+Date:   Wed Nov 29 21:33:02 2017 -0800
+
+    seed filesystem with intial file for user1
+
+ chef/cookbooks/baseconfig/attributes/default.rb |   2 ++
+ chef/cookbooks/baseconfig/files/EipjRV.pdf      | Bin 0 -> 14408 bytes
+ chef/cookbooks/baseconfig/files/TZSUY4.pdf      | Bin 0 -> 8696 bytes
+ chef/cookbooks/baseconfig/recipes/fs.rb         |  23 +++++++++++++++++++----
+ chef/cookbooks/database/recipes/default.rb      |   4 ++--
+ src/server/fs/index.js                          |   1 -
+ 6 files changed, 23 insertions(+), 7 deletions(-)
+
+commit 233413b499da1ebe4a676a5e76dcd8a3e617c9e4
+Merge: 5cdfd96 5ac51c9
+Author: seleenah <myemail>
+Date:   Wed Nov 29 19:53:14 2017 -0800
+
+    Merge branch 'fs' into 'master'
+    
+    mysqldump
+    
+    See merge request !57
+
+commit 5ac51c94f602f3d382d34ac5f0e67f4a7ef9cddd
+Merge: b787355 5cdfd96
+Author: seleenah <myemail>
+Date:   Wed Nov 29 17:50:45 2017 -0800
+
+    Merge branch 'master' into 'fs'
+    
+    # Conflicts:
+    #   chef/cookbooks/database/files/sqldump.sql
+
+commit 5cdfd962dc45cbaef1a84d48c8966be1e1b8b7ad
+Merge: 0a7bb4a 6f7c6aa
+Author: seleenah <myemail>
+Date:   Wed Nov 29 17:49:43 2017 -0800
+
+    Merge branch 'fs' into 'master'
+    
+    shared, pdf endpoint and hook up front end to back end for documents and shared files
+    
+    See merge request !56
+
+commit b787355e04c9722a3ea5d81c101926b8524c6570
+Author: Seleena Hua <myemail>
+Date:   Wed Nov 29 17:48:18 2017 -0800
+
+    mysqldump
+
+ chef/cookbooks/database/files/sqldump.sql | 45 ++++++++++++++++++++++++++-----
+ src/server/fs/index.js                    |  1 +
+ 2 files changed, 39 insertions(+), 7 deletions(-)
+
+commit 6f7c6aa15d758e4062237248a632113e539ee396
+Author: Seleena Hua <myemail>
+Date:   Thu Nov 23 19:41:28 2017 -0800
+
+    shared, pdf endpoint and hook up front end to back end for documents and shared files
+
+ src/app/js/actions/index.js         | 107 +++++++----------------------
+ src/app/js/components/ShareFile.jsx |   3 +-
+ src/server/fs/index.js              |  39 ++++++++---
+ src/server/models/document.js       |  62 ++++++++++++-----
+ src/server/models/documentblock.js  |  86 +++++++++++++++++++++++
+ src/server/routes/api.js            |   1 +
+ src/server/routes/files_api.js      | 133 ++++++++++++++++++++++++++----------
+ src/server/routes/index.js          |   1 -
+ src/server/routes/shared_api.js     |  33 +++++++++
+ 9 files changed, 317 insertions(+), 148 deletions(-)
+
+commit 0a7bb4ab08aa05fbd1569ce9080286a564a08e3e
+Merge: 674134f fc252df
+Author: seleenah <myemail>
+Date:   Wed Nov 29 16:16:08 2017 -0800
+
+    Merge branch 'shares' into 'master'
+    
+    shared files in db
+    
+    See merge request !55
+
+commit fc252df289a3f57e7c1d904ccccbbd75805ab556
+Author: Seleena Hua <myemail>
+Date:   Wed Nov 29 16:12:50 2017 -0800
+
+    shared files in db
+
+ chef/cookbooks/database/files/sqldump.sql | 44 ++++++++++++++++++++++++++-----
+ 1 file changed, 37 insertions(+), 7 deletions(-)
+
+commit e4433ba62e6bfe38f897da352d3ddceafe4fa749
+Merge: 7ded2c3 4327b0d
+Author: seleenah <myemail>
+Date:   Sat Nov 25 18:35:35 2017 -0800
+
+    Merge branch 'fs' into 'master'
+    
+    fs
+    
+    See merge request !46
+
+commit 4327b0d64e3f79715e1ca64818fdbf299a730a7a
+Author: Seleena Hua <myemail>
+Date:   Thu Nov 23 19:41:28 2017 -0800
+
+    fs
+
+ chef/cookbooks/database/files/sqldump.sql |  34 ++++++-
+ src/app/js/actions/index.js               |  46 ++++++---
+ src/app/js/actions/types.js               |   5 +
+ src/server/fs/index.js                    | 155 +++++++++++++++---------------
+ src/server/models/block.js                |  38 ++++++--
+ src/server/models/document.js             |  35 ++++---
+ src/server/routes/files_api.js            |  54 +++++++----
+ 7 files changed, 238 insertions(+), 129 deletions(-)
+
+commit 67366bbbfb68a351d45533dbb0958e52633a0a49
+Merge: d4315bb 86ecc03
+Author: seleenah <myemail>
+Date:   Sat Nov 25 12:05:26 2017 -0800
+
+    Merge branch 'fs-chef' into 'master'
+    
+    chef fs
+    
+    See merge request !43
+
+commit 86ecc03add8d8d15e4f54f56dd698ef34b12642f
+Author: Seleena Hua <myemail>
+Date:   Sat Nov 25 12:02:30 2017 -0800
+
+    chef filesystem setup
+
+ chef/cookbooks/baseconfig/recipes/fs.rb | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit a94ee3e7c16cd8011b3df3b353e3e5c82dfd73d8
+Author: Seleena Hua <myemail>
+Date:   Wed Nov 22 22:06:04 2017 -0800
+
+    chef fs stuff
+
+ Vagrantfile                             |  1 +
+ chef/cookbooks/baseconfig/recipes/fs.rb | 35 +++++++++++++++++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+
+commit 659892c181efdcc132afb74d28b5a0672cd5bce6
+Merge: 30afa83 d8d81db
+Author: seleenah <myemail>
+Date:   Wed Nov 22 22:18:29 2017 -0800
+
+    Merge branch 'fs' into 'master'
+    
+    Hooked up comments to db, created file system, chef files for file system, api e…
+    
+    See merge request !36
+
+commit d8d81db5ee0af7919377dda9effd0d339d9f37f8
+Author: seleenah <myemail>
+Date:   Mon Nov 20 17:15:17 2017 -0800
+
+    Hooked up comments to db, created file system, chef files for file system, api endpoints, blocks model
+
+ chef/cookbooks/database/files/sqldump.sql     | 17 ++++--
+ package.json                                  |  1 +
+ src/app/js/actions/index.js                   | 87 ++++++++++++++++++---------
+ src/app/js/containers/comments/CommentBox.jsx |  5 +-
+ src/app/js/containers/comments/Comments.jsx   |  8 +--
+ src/server/fs/index.js                        | 78 ++++++++++++++++--------
+ src/server/models/block.js                    | 67 +++++++++++++++++++++
+ src/server/models/comments.js                 | 49 +++++++--------
+ src/server/models/document.js                 | 50 ++++++++++++++-
+ src/server/routes/comment_api.js              | 23 +++----
+ src/server/routes/files_api.js                | 61 ++++++++++++++++++-
+ 11 files changed, 340 insertions(+), 106 deletions(-)
+
+commit bc6a13dcd4997885c216f446253605813c0f9129
+Author: seleenah <myemail>
+Date:   Fri Nov 17 21:23:59 2017 -0800
+
+    [document api] Hooked up files page to display from db, commments next
+
+ package.json                        |   2 +
+ src/app/js/actions/index.js         |  23 +-------
+ src/app/js/components/FileBlock.jsx |   2 +-
+ src/app/js/containers/FilesView.jsx |   9 ++-
+ src/app/js/reducers/fileReducer.js  |   8 +--
+ src/server/fs/index.js              |  53 ++++++++++++++++++
+ src/server/index.js                 |   1 +
+ src/server/models/comments.js       |   6 +-
+ src/server/models/document.js       | 107 ++++++++++++++++++++++--------------
+ src/server/models/user.js           |  10 ++--
+ src/server/routes/files_api.js      |  34 ++++++++++++
+ 11 files changed, 177 insertions(+), 78 deletions(-)
+
+commit 5ab18111c35f3384dcb3f1edc37f304d4591502a
+Merge: 56a5d80 fe7ae2a
+Author: seleenah <myemail>
+Date:   Sat Nov 18 19:59:33 2017 -0800
+
+    Merge branch 'fix' into 'master'
+    
+    password
+    
+    See merge request !33
+
+commit fe7ae2a003f897e7655be52fb4e5c69714bdf8f0
+Author: Seleena Hua <myemail>
+Date:   Sat Nov 18 19:59:18 2017 -0800
+
+    password
+
+ chef/cookbooks/database/recipes/default.rb | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+commit 56a5d801a79f9e30bd7c30304aa27c6f69bbd16c
+Merge: 12ffa6c 8670ebf
+Author: seleenah <myemail>
+Date:   Sat Nov 18 19:16:19 2017 -0800
+
+    Merge branch 'fix' into 'master'
+    
+    error handling fix
+    
+    See merge request !32
+
+commit 8670ebf650d4f6f36f0edb9c3eb27ee8e910adf1
+Author: Seleena Hua <myemail>
+Date:   Sat Nov 18 19:12:15 2017 -0800
+
+    error handling fix
+
+ src/app/js/actions/index.js   |  1 -
+ src/server/db/index.js        | 84 ++++++++++++++++++++++---------------------
+ src/server/models/comments.js |  8 ++---
+ 3 files changed, 48 insertions(+), 45 deletions(-)
+
+commit 982bd8b6adda2ca46aab2ccb2af903d0109a4a45
+Author: Seleena Hua <myemail>
+Date:   Sun Nov 19 01:08:23 2017 -0800
+
+    sql fix
+
+ src/server/db/index.js | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+commit 12ffa6c592cd443c93532653d1eb6befb353ca64
+Merge: 6fc11ec 982bd8b
+Author: seleenah <myemail>
+Date:   Sat Nov 18 17:11:26 2017 -0800
+
+    Merge branch 'fix' into 'master'
+    
+    sql fix
+    
+    See merge request !31
+
+commit 6fc11ec21bfd7487074656b255980668ec4173e9
+Merge: 4adae94 b03f9a1
+Author: seleenah <myemail>
+Date:   Sat Nov 18 16:52:35 2017 -0800
+
+    Merge branch 'db_mysql' into 'master'
+    
+    Db mysql integration
+    
+    See merge request !29
+
+commit b03f9a1535b60fee5a473a90198e4d7d62448497
+Author: seleenah <myemail>
+Date:   Sat Oct 28 16:09:20 2017 -0700
+
+    [Replace DB with MYSQL]
+    Integrate user login/registration
+    Create chef files for setup of mysql
+    Seed initial data: user1, user2, user3 passwords for all: Pass123$
+    Chef databag setup for future
+    add sanitization to queries --> next paging
+    added document model for later
+
+ Vagrantfile                                        |   6 +-
+ .../files/default/cassandra.sources.list           |   1 -
+ chef/cookbooks/baseconfig/files/seed.cql           |  10 --
+ chef/cookbooks/baseconfig/recipes/database.rb      |   9 --
+ chef/cookbooks/baseconfig/recipes/default.rb       |  24 ---
+ chef/cookbooks/database/Berksfile                  |   2 +
+ chef/cookbooks/database/Berksfile.lock             |   9 ++
+ chef/cookbooks/database/attributes/default.rb      |   0
+ chef/cookbooks/database/files/default/my.cnf       |  22 +++
+ chef/cookbooks/database/files/sqldump.sql          | 179 +++++++++++++++++++++
+ chef/cookbooks/database/metadata.rb                |   3 +
+ chef/cookbooks/database/recipes/default.rb         |  38 +++++
+ chef/data_bags/admins/mysqlroot.json               |  10 ++
+ chef/data_bags/admins/project_user.json            |   5 +
+ chef/encrypted_data_bag_secret                     |  11 ++
+ encrypted_data_bag_secret                          |   1 +
+ package.json                                       |   7 +-
+ src/app/js/actions/index.js                        |   5 +-
+ src/server/db.js                                   |  47 ------
+ src/server/db/index.js                             | 119 ++++++++++++++
+ src/server/db/secrets.json                         |   6 +
+ src/server/models/comments.js                      |   8 +-
+ src/server/models/document.js                      |  41 +++++
+ src/server/models/user.js                          |  46 +++---
+ src/server/routes/index.js                         |  10 +-
+ 25 files changed, 490 insertions(+), 129 deletions(-)
+
+commit 4adae9451266c7d374b636defeca3bd0bc144276
+Author: seleenah <myemail>
+Date:   Fri Nov 17 20:31:27 2017 -0800
+
+    checkpoint
+
+ readme.txt | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
