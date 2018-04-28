@@ -90,31 +90,23 @@ router.post('/create', (req, res) => {
     const user_id = req.user.uuid
     const title   = req.body.title != '' ? req.body.title : 'Untitled'
     const blocks  = req.body.blocks
-    let   doc_id  = ''
+    let doc_id    = ''
 
     if( user_id && blocks != undefined ){
-
-        Document.GetNewUuid().then((result, err) => {
-            if ( err || result == undefined || !result.uuid ){
-                console.error(err)
-                res.send({ message : 'Something went wrong creating uuid for file' })
-                throw(err)
-            }
-            else{
-                doc_id = result.uuid
-                return Document.create({ uuid : doc_id,
-                    title   : title,
-                    version : 1,
-                    user_id : user_id,
-                })
-            }
-        }).then((result, err) => {
+        let new_doc = {
+                        title   : title,
+                        version : 1,
+                        user_id : user_id,
+                      }
+        Document.create(new_doc).then((result, err) => {
             if (err){
                 console.error(err)
                 res.send({ message : 'Something went wrong creating file' })
                 throw(err)
             }
             else{
+                // console.log(result)
+                doc_id = result.uuid
                 return DocumentBlock.UpdateDocumentBlocks(doc_id, blocks)
             }
         }).then((result, err) => {
@@ -134,7 +126,8 @@ router.post('/create', (req, res) => {
                 throw(err)
             }
             else{
-                res.send(result)
+                // console.log("doc_id:" , doc_id)
+                res.send(doc_id) //send doc_id -> uuid back to client
             }
         }).catch((exception) => {
             console.error(exception)

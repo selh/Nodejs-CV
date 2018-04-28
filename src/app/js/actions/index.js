@@ -287,7 +287,7 @@ export const dispatchCreateFile = ({ title , blocks, created_at }, callback) => 
     try {
         // returns the id of the newly created document
 
-        await axiosWithCSRF.post('/files/create', JSON.stringify({ title, blocks, created_at }), {
+        const res = await axiosWithCSRF.post('/files/create', JSON.stringify({ title, blocks, created_at }), {
             headers: {
                 'Content-Type': 'application/json',
             },

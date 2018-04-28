@@ -1,8 +1,9 @@
 const { sqlInsert, sqlSelect } = require('../db')
+const uuidv1 = require('uuid/v1')
+
 const EDIT_BLOCK_SQL = 'UPDATE blocks SET summary=?, label=? WHERE uuid=?'
 const CREATE_BLOCK_SQL = 'INSERT INTO blocks (uuid, user_id, label, type, summary) VALUES (?, ?, ?, ?, ?)'
 const GET_BLOCKS_SQL = 'SELECT * FROM blocks WHERE user_id = ?'
-const SELECT_UUID = 'SELECT UUID() as uuid'
 
 class Block {
     constructor(props) {
@@ -38,6 +39,7 @@ class Block {
 
     create() {
         return new Promise((resolve, reject) => {
+            this.uuid = uuidv1()
             this.save().then((savedblock) => {
                 resolve(savedblock)
             }).catch((error) => {
@@ -58,17 +60,6 @@ class Block {
                 if (result) {
                     return resolve(props)
                 }
-            })
-        })
-    }
-
-    static GetNewUuid() {
-        return new Promise((resolve, reject) => {
-            sqlSelect(SELECT_UUID, [], (err, res) => {
-                if (err) {
-                    console.error(err)
-                }
-                resolve(res[0])
             })
         })
     }

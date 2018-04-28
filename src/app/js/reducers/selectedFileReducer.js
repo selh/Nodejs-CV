@@ -60,7 +60,8 @@ export default (state = initState, action) => {
         case types.CREATE_FILE_SUCCESS:
             return {
                 ...state,
-                title: action.payload,
+                id: action.payload.id,
+                title: action.payload.title,
                 isNew: false,
             }
         case types.ADD_BLOCK_TO_SELECTED_FILE: {

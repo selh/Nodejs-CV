@@ -1,5 +1,6 @@
 const { sqlInsert, sqlSelect, sqlDelete } = require('../db')
 const _ = require('lodash')
+const uuidv1 = require('uuid/v1')
 
 const CREATE_DOC_SQL = 'INSERT INTO document_blocks (document_id, block_id, block_order) VALUES (?, ?, ?)'
 const GET_BLOCKS_BY_DOCID_SQL = 'SELECT dbs.block_id, dbs.block_order, b.summary FROM blocks b JOIN document_blocks dbs ON dbs.block_id = b.uuid WHERE dbs.document_id = ? ORDER BY block_order ASC'
@@ -36,6 +37,7 @@ const ParseBlockSQL = (rows) => {
 class DocumentBlock {
     constructor(props) {
         if (props) {
+            this.uuid        = props.uuid
             this.block_id    = props.block_id
             this.blockOrder  = props.block_order
             this.summary     = props.summary
@@ -68,7 +70,7 @@ class DocumentBlock {
 
         return new Promise((resolve, reject) => {
             const block = new DocumentBlock()
-            block.uuid  = props.uuid
+            block.uuid  = uuidv1()
             block.label = props.label
             block.type  = props.type
             block.user_id = props.user_id

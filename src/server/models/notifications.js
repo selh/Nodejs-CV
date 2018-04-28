@@ -1,5 +1,6 @@
 const { sqlInsert, sqlSelect ,sqlDelete} = require('../db')
 const _ = require('lodash')
+const uuidv1 = require('uuid/v1')
 const { User } = require('./user')
 const createQuery = 'INSERT INTO notifications (uuid, user_id, document_id, sender, type, created_at) VALUES (?, ?, ?, ?, ?,?)'
 
@@ -31,36 +32,12 @@ class Notifications {
             }
 
             if(this.type=='comment') {
-
-                this.getUUid().then((success,err)=>{
-                    if(success){
-                        return resolve(this.createCommentNotification(success))
-                    }
-                    if(err){
-                        reject(null)
-                    }
-                })
+                let uuid = uuidv1()
+                return resolve(this.createCommentNotification(uuid))
 
             }
 
         })
-    }
-
-    getUUid () {
-        const newId = 'SELECT UUID() AS uuid'
-        return new Promise((resolve, reject) =>{
-            sqlSelect(newId,null, (err,result)=>{
-                if(err){
-                    return reject(null)
-                }
-                if(result){
-
-                    return resolve(result[0].uuid)
-                }
-            })
-        })
-
-
     }
 
 

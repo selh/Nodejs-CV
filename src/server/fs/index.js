@@ -1,11 +1,10 @@
-//not sure where to put this file
 const rand  = require('randomstring')
 const mdpdf = require('markdown-pdf')
 const { Document } = require('../models/document')
 const { DocumentBlock } = require('../models/documentblock')
 const fs = require('fs')
 //path to where file system is located
-let fs_path = process.env.FILESYSTEM_PATH || '/home/seleena/Documents/files/'
+let fs_path = process.env.FILESYSTEM_PATH || '/files/'
 
 
 /* returns file path: append filename to this*/
@@ -99,6 +98,7 @@ module.exports = {
                 else{
                     if ( filepath != undefined || filepath.length > 0 ){ //test this when pdf render works
                         let full_path_pdf = fs_path + filepath[0].filepath + filepath[0].filename
+                        console.log(full_path_pdf)
                         fs.readFile(full_path_pdf, function (error, result){
                             if (error){
                                 throw(error)

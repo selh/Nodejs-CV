@@ -8,7 +8,7 @@ router.use(requireLogin)
 
 router.get('/:docId', (req, res) => {
     const docId = req.params.docId
-    console.log('Checking permissions')
+    console.log('Checking permissions for user')
     //Just validate first, if it checkouts , carry on loading comments, else load error
     Document.VaildateSharedDocumentPermission(docId, req.user.email_address).then((result, err) => {
         if (err) {
@@ -75,9 +75,9 @@ router.post('/create', (req, res) => {
                             })
                         }
                     })
-                        .catch((exception) => {
-                            res.send({ error: exception })
-                        })
+                    .catch((exception) => {
+                        res.send({ error: exception })
+                    })
                 } else {
                     res.status(403).send({message: 'You don\'t have permission'})
                 }

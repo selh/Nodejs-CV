@@ -21,28 +21,20 @@ router.get('/', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-    Block.GetNewUuid().then((result, err) => {
-        if (err || !result || !result.uuid) {
-            console.error(err)
+
+    let newBlock = new Block({
+                                user_id: req.user.uuid,
+                                label: req.body.label,
+                                type: req.body.type,
+                            })
+
+    newBlock.create().then((err, newBlock) => {
+        if (err) {
             res.send(err)
-            res.status(400).send()
-            throw (err)
         }
-        else {
-            let newBlock = new Block({
-                uuid: result.uuid,
-                user_id: req.user.uuid,
-                label: req.body.label,
-                type: req.body.type,
-            })
-            newBlock.create().then((err, newBlock) => {
-                if (err) {
-                    res.send(err)
-                }
-                res.send(newBlock)
-            })
-        }
+        res.send(newBlock)
     })
+    
 })
 
 router.post('/edit', (req, res) => {

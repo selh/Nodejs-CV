@@ -1,4 +1,5 @@
 const { sqlInsert, sqlSelect } = require('../db')
+const uuidv1 = require('uuid/v1')
 
 //Makes comments into a ready display form
 const parseTracking = (rows) => {
@@ -24,12 +25,12 @@ class Tracking {
 
     //checks if user exists ,returns iD
     create() {
-        const createQuery = 'INSERT INTO app_tracker (uuid, user_id, company_name, job_title, created_at) VALUES (UUID(), ?, ?, ?, NOW())'
+        const createQuery = 'INSERT INTO app_tracker (uuid, user_id, company_name, job_title, created_at) VALUES (?, ?, ?, ?, NOW())'
         return new Promise((resolve, reject) => {
             // validate user first
             sqlInsert(
                 createQuery,
-                [this.userId, this.companyName, this.jobTitle],
+                [ uuidv1(), this.userId, this.companyName, this.jobTitle],
                 (err) => {
                     if (err) {
                         console.log(err)

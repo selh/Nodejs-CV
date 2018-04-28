@@ -1,5 +1,6 @@
 const { sqlInsert, sqlSelect, sqlUpdate } = require('../db')
 const _ = require('lodash')
+const uuidv1 = require('uuid/v1')
 
 const CREATE_DOC_SQL = 'INSERT INTO documents (uuid, created_at, title, user_id, version) VALUES (?, NOW(), ?, ?, ?)'
 const FIND_RECENT_BY_USERID = 'SELECT uuid, title, created_at FROM documents where user_id = ?'
@@ -12,7 +13,7 @@ const UPDATE_TITLE_BY_DOC_ID = 'UPDATE documents set title = ? WHERE uuid = ?'
 const FIND_SHARED_BY_USEREMAIL = 'SELECT d.uuid, s.owner_id, s.user_email, d.title, d.created_at FROM shared_files s JOIN documents d ON s.document_id = d.uuid WHERE s.user_email = ? OR s.owner_id = ?'
 const CHECK_USER_PERMISSION_ON_DOC = 'SELECT user_id from documents where uuid = ?'
 const CHECK_USER_PERMISSION_ON_SHARED_DOC = 'SELECT u.email_address, s.user_email from shared_files s join users u on u.uuid = s.owner_id WHERE document_id = ? '
-const SELECT_UUID = 'SELECT UUID() as uuid'
+
 /*This will be visible to public*/
 const ParseDocSQL = (rows) => {
     return _.map(rows, function (entries) {
@@ -29,10 +30,10 @@ const ParseDocSQL = (rows) => {
 class Document {
     constructor(props) {
         if (props) {
-            this.doc_id = props.uuid
-            this.title = props.title ? props.title : 'untitled'
-            this.user_id = props.user_id
-            this.version = props.version
+            this.doc_id   = props.uuid
+            this.title    = props.title ? props.title : 'untitled'
+            this.user_id  = props.user_id
+            this.version  = props.version
             this.filepath = props.filepath ? props.filepath : ''
             this.filename = props.filename ? props.filename : ''
         }
@@ -63,7 +64,7 @@ class Document {
 
         return new Promise((resolve, reject) => {
             const doc = new Document()
-            doc.uuid = props.uuid
+            doc.uuid  = uuidv1()
             doc.title = props.title
             doc.version = props.version
             doc.user_id = props.user_id
@@ -72,21 +73,6 @@ class Document {
             }).catch((error) => {
                 console.error(`[Doc][Error] Failed to create Document: ${error.message}`)
                 reject(new Error('Internal Server Error'))
-            })
-        })
-    }
-
-
-    /*Needed inorder to get uuid for document blocks insertion at file create time*/
-    static GetNewUuid() {
-        return new Promise((resolve, reject) => {
-            sqlSelect(SELECT_UUID, [], (err, res) => {
-                if (err) {
-                    console.error(err)
-                    return reject(err)
-                }
-
-                resolve(res[0])
             })
         })
     }

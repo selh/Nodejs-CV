@@ -1,4 +1,5 @@
 const { sqlInsert, sqlSelect } = require('../db')
+const uuidv1 = require('uuid/v1')
 const _ = require('lodash')
 
 
@@ -17,6 +18,7 @@ const parseCommentOutput = (rows) => {
 class Comments {
     constructor(props) {
         if (props) {
+            this.uuid       = props.uuid
             this.username   = props.username
             this.userId     = props.userId
             this.documentId = props.documentId
@@ -42,13 +44,14 @@ class Comments {
     }
     //checks if user exists ,returns iD
     create() {
-        const createQuery = 'INSERT INTO comments (uuid, user_id, document_id, comment, created_at) VALUES (UUID(), ?, ?, ?, ?)'
+        const createQuery = 'INSERT INTO comments (uuid, user_id, document_id, comment, created_at) VALUES (?, ?, ?, ?, ?)'
         return new Promise((resolve, reject) => {
             // validate user first
-            sqlInsert(createQuery, [this.userId, this.documentId, this.content, this.timeStamp], (err, result) => {
+            this.uuid = uuidv1()
+            sqlInsert(createQuery, [ this.uuid, this.userId, this.documentId, this.content, this.timeStamp], (err, result) => {
                 if (err) {
                     console.log(err)
-                    return resolve({ params: [this.username, this.content, this.timeStamp], error: err })
+                    return reject({ params: [this.username, this.content, this.timeStamp], error: err })
                 }
                 return resolve({ message: 'comment uploaded', data: result })
             })

@@ -9,6 +9,7 @@ const _ = require('lodash')
 const { sqlInsert, sqlSelect } = require('../db')
 const config = require('../config')
 const keys = require('../config/keys')
+const uuidv1 = require('uuid/v1')
 
 const BCRYPT_HASHING_ROUNDS = 10
 
@@ -16,7 +17,7 @@ const FIND_USER_BY_EMAIL_SQL       = 'SELECT uuid, username, cas_id, email_addre
 const FIND_USER_BY_USERNAME_SQL    = 'SELECT uuid, username, cas_id, email_address, firstname, lastname, linkedin_id, password FROM users WHERE username = ? LIMIT 1'
 const FIND_USER_BY_CAS_ID_SQL      = 'SELECT uuid, username, cas_id, email_address, firstname, lastname, linkedin_id, password FROM users WHERE cas_id = ? LIMIT 1'
 const FIND_USER_BY_LINKEDIN_ID_SQL = 'SELECT uuid, username, cas_id, email_address, firstname, lastname, linkedin_id, password FROM users WHERE linkedin_id = ? LIMIT 1'
-const INSERT_USER_SQL              = 'INSERT INTO users (uuid, password, email_address, firstname, lastname, cas_id, linkedin_id, username) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?)'
+const INSERT_USER_SQL              = 'INSERT INTO users (uuid, password, email_address, firstname, lastname, cas_id, linkedin_id, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
 //const UPSERT_USER_SQL              = 'UPDATE users SET password = ?, email_address = ?, firstname = ?, lastname = ?, cas_id = ?, linkedin_id = ? WHERE username = ?'
 const UPDATE_PROFILE_SQL           = 'UPDATE users SET email_address = ?, firstname = ?, lastname = ? WHERE uuid = ?'
 const UPDATE_CAS_ID_SQL            = 'UPDATE users SET cas_id = ? WHERE uuid = ?'
@@ -130,6 +131,7 @@ class User {
     // username is the primary key and hence used in the WHERE clause
     SQLValueArray() {
         return [
+            this.uuid,
             this.password,
             this.email_address,
             this.firstname,
@@ -329,6 +331,7 @@ class User {
                 return reject(new Error('Passwords do not match'))
             }
             const user = new User()
+            user.uuid = uuidv1()
             user.username = props.username
             user.email_address = props.email_address
             user.cas_id = props.cas_id
@@ -370,6 +373,7 @@ class User {
                     return reject(new Error('You already have account with this email'))
                 } else {
                     const user = new User({
+                        uuid: uuidv1(),
                         username: email_address.split('@')[0],
                         email_address: email_address,
                         linkedin_id: linkedin_id,
